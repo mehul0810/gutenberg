@@ -4,10 +4,10 @@
         "name": "core-embed/tumblr",
         "isValid": true,
         "attributes": {
-            "url": "https://tumblr.com/",
             "caption": [
                 "Embedded content from tumblr"
-            ]
+            ],
+            "url": "https://tumblr.com/"
         }
     }
 ]

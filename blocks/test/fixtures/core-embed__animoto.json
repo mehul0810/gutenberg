@@ -4,10 +4,10 @@
         "name": "core-embed/animoto",
         "isValid": true,
         "attributes": {
-            "url": "https://animoto.com/",
             "caption": [
                 "Embedded content from animoto"
-            ]
+            ],
+            "url": "https://animoto.com/"
         }
     }
 ]

@@ -4,10 +4,10 @@
         "name": "core-embed/spotify",
         "isValid": true,
         "attributes": {
-            "url": "https://spotify.com/",
             "caption": [
                 "Embedded content from spotify"
-            ]
+            ],
+            "url": "https://spotify.com/"
         }
     }
 ]

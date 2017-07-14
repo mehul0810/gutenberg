@@ -4,10 +4,10 @@
         "name": "core-embed/instagram",
         "isValid": true,
         "attributes": {
-            "url": "https://instagram.com/",
             "caption": [
                 "Embedded content from instagram"
-            ]
+            ],
+            "url": "https://instagram.com/"
         }
     }
 ]

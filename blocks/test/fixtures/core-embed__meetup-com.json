@@ -4,10 +4,10 @@
         "name": "core-embed/meetup-com",
         "isValid": true,
         "attributes": {
-            "url": "https://meetup.com/",
             "caption": [
                 "Embedded content from meetup-com"
-            ]
+            ],
+            "url": "https://meetup.com/"
         }
     }
 ]

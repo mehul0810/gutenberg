@@ -4,10 +4,10 @@
         "name": "core-embed/issuu",
         "isValid": true,
         "attributes": {
-            "url": "https://issuu.com/",
             "caption": [
                 "Embedded content from issuu"
-            ]
+            ],
+            "url": "https://issuu.com/"
         }
     }
 ]

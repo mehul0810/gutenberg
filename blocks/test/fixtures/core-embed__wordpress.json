@@ -4,10 +4,10 @@
         "name": "core-embed/wordpress",
         "isValid": true,
         "attributes": {
-            "url": "https://wordpress.com/",
             "caption": [
                 "Embedded content from WordPress"
-            ]
+            ],
+            "url": "https://wordpress.com/"
         }
     }
 ]

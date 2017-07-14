@@ -4,10 +4,10 @@
         "name": "core/embed",
         "isValid": true,
         "attributes": {
-            "url": "https://example.com/",
             "caption": [
                 "Embedded content from an example URL"
-            ]
+            ],
+            "url": "https://example.com/"
         }
     }
 ]

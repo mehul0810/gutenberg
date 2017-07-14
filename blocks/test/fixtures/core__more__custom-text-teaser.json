@@ -3,9 +3,6 @@
         "uid": "_uid_0",
         "name": "core/more",
         "isValid": true,
-        "attributes": {
-            "customText": "Continue Reading",
-            "noTeaser": true
-        }
+        "attributes": {}
     }
 ]

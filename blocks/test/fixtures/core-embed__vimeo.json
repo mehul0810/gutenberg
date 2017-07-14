@@ -4,10 +4,10 @@
         "name": "core-embed/vimeo",
         "isValid": true,
         "attributes": {
-            "url": "https://vimeo.com/",
             "caption": [
                 "Embedded content from vimeo"
-            ]
+            ],
+            "url": "https://vimeo.com/"
         }
     }
 ]

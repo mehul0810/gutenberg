@@ -4,10 +4,10 @@
         "name": "core-embed/screencast",
         "isValid": true,
         "attributes": {
-            "url": "https://screencast.com/",
             "caption": [
                 "Embedded content from screencast"
-            ]
+            ],
+            "url": "https://screencast.com/"
         }
     }
 ]

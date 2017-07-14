@@ -4,10 +4,10 @@
         "name": "core-embed/reverbnation",
         "isValid": true,
         "attributes": {
-            "url": "https://reverbnation.com/",
             "caption": [
                 "Embedded content from reverbnation"
-            ]
+            ],
+            "url": "https://reverbnation.com/"
         }
     }
 ]

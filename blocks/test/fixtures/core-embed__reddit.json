@@ -4,10 +4,10 @@
         "name": "core-embed/reddit",
         "isValid": true,
         "attributes": {
-            "url": "https://reddit.com/",
             "caption": [
                 "Embedded content from reddit"
-            ]
+            ],
+            "url": "https://reddit.com/"
         }
     }
 ]

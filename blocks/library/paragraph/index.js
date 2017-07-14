@@ -25,14 +25,16 @@ registerBlockType( 'core/paragraph', {
 
 	category: 'common',
 
-	defaultAttributes: {
-		dropCap: false,
-	},
-
 	className: false,
 
 	attributes: {
 		content: children( 'p' ),
+		align: String,
+		dropCap: {
+			type: Boolean,
+			defaultValue: false,
+		},
+		placeholder: Object, // Array
 	},
 
 	transforms: {

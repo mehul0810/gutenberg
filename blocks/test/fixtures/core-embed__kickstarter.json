@@ -4,10 +4,10 @@
         "name": "core-embed/kickstarter",
         "isValid": true,
         "attributes": {
-            "url": "https://kickstarter.com/",
             "caption": [
                 "Embedded content from kickstarter"
-            ]
+            ],
+            "url": "https://kickstarter.com/"
         }
     }
 ]

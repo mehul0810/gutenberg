@@ -4,10 +4,10 @@
         "name": "core-embed/scribd",
         "isValid": true,
         "attributes": {
-            "url": "https://scribd.com/",
             "caption": [
                 "Embedded content from scribd"
-            ]
+            ],
+            "url": "https://scribd.com/"
         }
     }
 ]

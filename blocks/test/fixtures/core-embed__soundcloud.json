@@ -4,10 +4,10 @@
         "name": "core-embed/soundcloud",
         "isValid": true,
         "attributes": {
-            "url": "https://soundcloud.com/",
             "caption": [
                 "Embedded content from soundcloud"
-            ]
+            ],
+            "url": "https://soundcloud.com/"
         }
     }
 ]

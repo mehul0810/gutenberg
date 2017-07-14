@@ -4,10 +4,10 @@
         "name": "core-embed/mixcloud",
         "isValid": true,
         "attributes": {
-            "url": "https://mixcloud.com/",
             "caption": [
                 "Embedded content from mixcloud"
-            ]
+            ],
+            "url": "https://mixcloud.com/"
         }
     }
 ]

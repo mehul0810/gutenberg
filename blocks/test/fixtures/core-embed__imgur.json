@@ -4,10 +4,10 @@
         "name": "core-embed/imgur",
         "isValid": true,
         "attributes": {
-            "url": "https://imgur.com/",
             "caption": [
                 "Embedded content from imgur"
-            ]
+            ],
+            "url": "https://imgur.com/"
         }
     }
 ]

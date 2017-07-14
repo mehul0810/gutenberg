@@ -4,10 +4,10 @@
         "name": "core-embed/ted",
         "isValid": true,
         "attributes": {
-            "url": "https://ted.com/",
             "caption": [
                 "Embedded content from ted"
-            ]
+            ],
+            "url": "https://ted.com/"
         }
     }
 ]

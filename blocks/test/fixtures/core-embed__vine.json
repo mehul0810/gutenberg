@@ -4,10 +4,10 @@
         "name": "core-embed/vine",
         "isValid": true,
         "attributes": {
-            "url": "https://vine.com/",
             "caption": [
                 "Embedded content from vine"
-            ]
+            ],
+            "url": "https://vine.com/"
         }
     }
 ]

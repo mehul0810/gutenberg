@@ -4,10 +4,10 @@
         "name": "core-embed/polldaddy",
         "isValid": true,
         "attributes": {
-            "url": "https://polldaddy.com/",
             "caption": [
                 "Embedded content from polldaddy"
-            ]
+            ],
+            "url": "https://polldaddy.com/"
         }
     }
 ]

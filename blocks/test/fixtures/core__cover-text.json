@@ -4,7 +4,6 @@
         "name": "core/cover-text",
         "isValid": false,
         "attributes": {
-            "backgroundColor": "#fcb900",
             "content": [
                 [
                     "Text with color."

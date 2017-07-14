@@ -39,6 +39,8 @@ function getEmbedBlockSettings( { title, icon, category = 'embed', transforms } 
 		attributes: {
 			title: attr( 'iframe', 'title' ),
 			caption: children( 'figcaption' ),
+			url: String,
+			align: String,
 		},
 
 		transforms,
@@ -207,7 +209,7 @@ function getEmbedBlockSettings( { title, icon, category = 'embed', transforms } 
 		},
 
 		save( { attributes } ) {
-			const { url, caption = [], align } = attributes;
+			const { url, caption, align } = attributes;
 
 			return (
 				<figure className={ align && `align${ align }` }>

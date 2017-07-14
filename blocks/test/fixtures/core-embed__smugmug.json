@@ -4,10 +4,10 @@
         "name": "core-embed/smugmug",
         "isValid": true,
         "attributes": {
-            "url": "https://smugmug.com/",
             "caption": [
                 "Embedded content from smugmug"
-            ]
+            ],
+            "url": "https://smugmug.com/"
         }
     }
 ]
