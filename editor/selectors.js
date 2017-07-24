@@ -2,13 +2,13 @@
  * External dependencies
  */
 import moment from 'moment';
-import { first, last, get, values } from 'lodash';
+import { first, last, values, some, isEqual } from 'lodash';
 import createSelector from 'rememo';
 
 /**
  * WordPress dependencies
  */
-import { getBlockType } from '@wordpress/blocks';
+import { serialize, getBlockType } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -85,9 +85,38 @@ export function isEditedPostNew( state ) {
  * @param  {Object}  state Global application state
  * @return {Boolean}       Whether unsaved values exist
  */
-export function isEditedPostDirty( state ) {
-	return state.editor.dirty;
-}
+export const isEditedPostDirty = createSelector(
+	( state ) => {
+		const edits = getPostEdits( state );
+		const currentPost = getCurrentPost( state );
+		const hasEditedAttributes = some( edits, ( value, key ) => {
+			return ! isEqual( value, currentPost[ key ] );
+		} );
+
+		if ( hasEditedAttributes ) {
+			return true;
+		}
+
+		if ( ! hasEditorUndo( state ) ) {
+			return false;
+		}
+
+		const { history } = state.editor;
+		return some( [
+			'blocksByUid',
+			'blockOrder',
+		], ( key ) => (
+			! isEqual(
+				history.past[ 0 ][ key ],
+				history.present[ key ]
+			)
+		) );
+	},
+	( state ) => [
+		state.editor,
+		state.currentPost,
+	]
+);
 
 /**
  * Returns true if there are no unsaved values for the current edit session and if
@@ -212,7 +241,7 @@ export function isEditedPostPublishable( state ) {
  */
 export function isEditedPostSaveable( state ) {
 	return (
-		getBlockCount( state ) > 0 ||
+		!! getEditedPostContent( state ) ||
 		!! getEditedPostTitle( state ) ||
 		!! getEditedPostExcerpt( state )
 	);
@@ -243,8 +272,8 @@ export function getEditedPostTitle( state ) {
 		return editedTitle;
 	}
 	const currentPost = getCurrentPost( state );
-	if ( currentPost.title && currentPost.title.raw ) {
-		return currentPost.title.raw;
+	if ( currentPost.title && currentPost.title ) {
+		return currentPost.title;
 	}
 	return '';
 }
@@ -273,7 +302,7 @@ export function getDocumentTitle( state ) {
  */
 export function getEditedPostExcerpt( state ) {
 	return state.editor.edits.excerpt === undefined
-		? get( state.currentPost, 'excerpt.raw' )
+		? state.currentPost.excerpt
 		: state.editor.edits.excerpt;
 }
 
@@ -690,6 +719,29 @@ export function getSuggestedPostFormat( state ) {
 
 	return null;
 }
+
+/**
+ * Returns the content of the post being edited, preferring raw string edit
+ * before falling back to serialization of block state.
+ *
+ * @param  {Object} state Global application state
+ * @return {String}       Post content
+ */
+export const getEditedPostContent = createSelector(
+	( state ) => {
+		const edits = getPostEdits( state );
+		if ( 'content' in edits ) {
+			return edits.content;
+		}
+
+		return serialize( getBlocks( state ) );
+	},
+	( state ) => [
+		state.editor.edits.content,
+		state.editor.blocksByUid,
+		state.editor.blockOrder,
+	],
+);
 
 /**
  * Returns the user notices array
