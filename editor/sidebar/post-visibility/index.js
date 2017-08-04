@@ -27,9 +27,11 @@ class PostVisibility extends Component {
 
 		this.toggleDialog = this.toggleDialog.bind( this );
 		this.stopPropagation = this.stopPropagation.bind( this );
+		this.closeOnClickOutside = this.closeOnClickOutside.bind( this );
 		this.setPublic = this.setPublic.bind( this );
 		this.setPrivate = this.setPrivate.bind( this );
 		this.setPasswordProtected = this.setPasswordProtected.bind( this );
+		this.bindButtonNode = this.bindButtonNode.bind( this );
 
 		this.state = {
 			opened: false,
@@ -43,6 +45,13 @@ class PostVisibility extends Component {
 
 	stopPropagation( event ) {
 		event.stopPropagation();
+	}
+
+	closeOnClickOutside( event ) {
+		const { opened } = this.state;
+		if ( opened && ! this.buttonNode.contains( event.target ) ) {
+			this.toggleDialog();
+		}
 	}
 
 	setPublic() {
@@ -69,6 +78,10 @@ class PostVisibility extends Component {
 
 		onUpdateVisibility( visibility === 'private' ? 'draft' : status, password || '' );
 		this.setState( { hasPassword: true } );
+	}
+
+	bindButtonNode( node ) {
+		this.buttonNode = node;
 	}
 
 	render() {
@@ -111,12 +124,13 @@ class PostVisibility extends Component {
 					aria-expanded={ this.state.opened }
 					className="editor-post-visibility__toggle button-link"
 					onClick={ this.toggleDialog }
+					ref={ this.bindButtonNode }
 				>
 					{ getVisibilityLabel( visibility ) }
 					<Popover
 						position="bottom left"
 						isOpen={ this.state.opened }
-						onClose={ this.toggleDialog }
+						onClose={ this.closeOnClickOutside }
 						onClick={ this.stopPropagation }
 						className="editor-post-visibility__dialog"
 					>
