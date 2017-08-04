@@ -90,7 +90,7 @@ export default {
 		const isPublished = publishStatus.indexOf( previousPost.status ) !== -1;
 		const messages = {
 			publish: __( 'Post published!' ),
-			'private': __( 'Post published privately!' ),
+			private: __( 'Post published privately!' ),
 			future: __( 'Post scheduled!' ),
 		};
 
@@ -130,7 +130,7 @@ export default {
 		// Unless we publish an "updating failed" message
 		const messages = {
 			publish: __( 'Publishing failed' ),
-			'private': __( 'Publishing failed' ),
+			private: __( 'Publishing failed' ),
 			future: __( 'Scheduling failed' ),
 		};
 		const noticeMessage = ! isPublished && publishStatus.indexOf( edits.status ) !== -1
