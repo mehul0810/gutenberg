@@ -13,6 +13,7 @@
 
 	.react-resizable {
 		position: relative;
+		margin: 0 auto;
 	}
 
 	.react-resizable-handle {
@@ -35,5 +36,13 @@
 	.blocks-format-toolbar__link-modal {
 		top: 0;
 		left: 0;
+	}
+}
+
+.editor-visual-editor__block[data-align="right"],
+.editor-visual-editor__block[data-align="left"] {
+	max-width: none !important;
+	&[data-resized="false"] {
+		max-width: 370px !important;
 	}
 }
