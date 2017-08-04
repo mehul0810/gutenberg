@@ -13,7 +13,7 @@ import { nodetypes } from '@wordpress/utils';
  */
 import { createBlock } from './factory';
 import { getBlockTypes, getUnknownTypeHandler } from './registration';
-import { getMatcherAttributes } from './parser';
+import { getSourcedAttributes } from './parser';
 import stripAttributes from './paste/strip-attributes';
 import removeSpans from './paste/remove-spans';
 
@@ -94,7 +94,7 @@ export default function( nodes ) {
 				return acc;
 			}
 
-			const attributes = getMatcherAttributes(
+			const attributes = getSourcedAttributes(
 				node.outerHTML,
 				transform.attributes,
 			);
