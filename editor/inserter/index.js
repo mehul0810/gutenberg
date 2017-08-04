@@ -1,7 +1,6 @@
 /**
  * External dependencies
  */
-import clickOutside from 'react-click-outside';
 import { connect } from 'react-redux';
 
 /**
@@ -57,14 +56,6 @@ class Inserter extends Component {
 		this.close();
 	}
 
-	handleClickOutside() {
-		if ( ! this.state.opened ) {
-			return;
-		}
-
-		this.close();
-	}
-
 	render() {
 		const { opened } = this.state;
 		const { position, children } = this.props;
@@ -85,6 +76,7 @@ class Inserter extends Component {
 					<InserterMenu
 						position={ position }
 						onSelect={ this.insertBlock }
+						onClose={ this.close }
 					/>
 				) }
 			</div>
@@ -108,4 +100,4 @@ export default connect(
 			) );
 		},
 	} )
-)( clickOutside( Inserter ) );
+)( Inserter );
