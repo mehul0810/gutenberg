@@ -2,7 +2,7 @@
  * External dependencies
  */
 import classnames from 'classnames';
-import { isEqual } from 'lodash';
+import { isEqual, pickBy } from 'lodash';
 
 /**
  * WordPress dependencies
@@ -14,6 +14,13 @@ import { createPortal, Component } from '@wordpress/element';
  */
 import './style.scss';
 import PopoverDetectOutside from './detect-outside';
+
+/**
+ * Matches an event handler prop key
+ *
+ * @type {RegExp}
+ */
+const REGEXP_EVENT_PROP = /^on[A-Z]/;
 
 export class Popover extends Component {
 	constructor() {
@@ -156,6 +163,10 @@ export class Popover extends Component {
 			return null;
 		}
 
+		const eventHandlers = pickBy( this.props, ( value, key ) => (
+			'onClose' !== key && REGEXP_EVENT_PROP.test( key )
+		) );
+
 		const classes = classnames(
 			'components-popover',
 			className,
@@ -171,6 +182,7 @@ export class Popover extends Component {
 							ref={ this.bindNode( 'popover' ) }
 							className={ classes }
 							tabIndex="0"
+							{ ...eventHandlers }
 						>
 							<div
 								ref={ this.bindNode( 'content' ) }

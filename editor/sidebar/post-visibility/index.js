@@ -26,6 +26,7 @@ class PostVisibility extends Component {
 		super( ...arguments );
 
 		this.toggleDialog = this.toggleDialog.bind( this );
+		this.stopPropagation = this.stopPropagation.bind( this );
 		this.setPublic = this.setPublic.bind( this );
 		this.setPrivate = this.setPrivate.bind( this );
 		this.setPasswordProtected = this.setPasswordProtected.bind( this );
@@ -38,6 +39,10 @@ class PostVisibility extends Component {
 
 	toggleDialog() {
 		this.setState( ( state ) => ( { opened: ! state.opened } ) );
+	}
+
+	stopPropagation( event ) {
+		event.stopPropagation();
 	}
 
 	setPublic() {
@@ -112,6 +117,7 @@ class PostVisibility extends Component {
 						position="bottom left"
 						isOpen={ this.state.opened }
 						onClose={ this.toggleDialog }
+						onClick={ this.stopPropagation }
 						className="editor-post-visibility__dialog"
 					>
 						<fieldset>
