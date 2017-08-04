@@ -10,7 +10,10 @@ import { Component } from '@wordpress/element';
 
 class PopoverDetectOutside extends Component {
 	handleClickOutside( event ) {
-		this.props.onClickOutside( event );
+		const { onClickOutside } = this.props;
+		if ( onClickOutside ) {
+			onClickOutside( event );
+		}
 	}
 
 	render() {

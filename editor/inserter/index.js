@@ -22,9 +22,13 @@ import { bumpStat } from '../utils/tracking';
 class Inserter extends Component {
 	constructor() {
 		super( ...arguments );
+
 		this.toggle = this.toggle.bind( this );
 		this.close = this.close.bind( this );
+		this.closeOnClickOutside = this.closeOnClickOutside.bind( this );
+		this.bindNode = this.bindNode.bind( this );
 		this.insertBlock = this.insertBlock.bind( this );
+
 		this.state = {
 			opened: false,
 		};
@@ -40,6 +44,16 @@ class Inserter extends Component {
 		this.setState( {
 			opened: false,
 		} );
+	}
+
+	closeOnClickOutside( event ) {
+		if ( ! this.node.contains( event.target ) ) {
+			this.close();
+		}
+	}
+
+	bindNode( node ) {
+		this.node = node;
 	}
 
 	insertBlock( name ) {
@@ -61,7 +75,7 @@ class Inserter extends Component {
 		const { position, children } = this.props;
 
 		return (
-			<div className="editor-inserter">
+			<div ref={ this.bindNode } className="editor-inserter">
 				<IconButton
 					icon="insert"
 					label={ __( 'Insert block' ) }
@@ -76,7 +90,7 @@ class Inserter extends Component {
 					<InserterMenu
 						position={ position }
 						onSelect={ this.insertBlock }
-						onClose={ this.close }
+						onClose={ this.closeOnClickOutside }
 					/>
 				) }
 			</div>
