@@ -22,6 +22,7 @@ export class Popover extends Component {
 		this.bindNode = this.bindNode.bind( this );
 		this.setOffset = this.setOffset.bind( this );
 		this.throttledSetOffset = this.throttledSetOffset.bind( this );
+		this.maybeClose = this.maybeClose.bind( this );
 
 		this.nodes = {};
 
@@ -130,12 +131,25 @@ export class Popover extends Component {
 		];
 	}
 
+	maybeClose( event ) {
+		const { onClose } = this.props;
+		const { anchor } = this.nodes;
+		if ( ! onClose || ! anchor ) {
+			return;
+		}
+
+		const { parentNode } = anchor;
+		if ( parentNode && ! parentNode.contains( event.target ) ) {
+			onClose();
+		}
+	}
+
 	bindNode( name ) {
 		return ( node ) => this.nodes[ name ] = node;
 	}
 
 	render() {
-		const { isOpen, onClose, children, className } = this.props;
+		const { isOpen, children, className } = this.props;
 		const [ yAxis, xAxis ] = this.getPositions();
 
 		if ( ! isOpen ) {
@@ -152,7 +166,7 @@ export class Popover extends Component {
 		return (
 			<span ref={ this.bindNode( 'anchor' ) }>
 				{ createPortal(
-					<PopoverDetectOutside onClickOutside={ onClose }>
+					<PopoverDetectOutside onClickOutside={ this.maybeClose }>
 						<div
 							ref={ this.bindNode( 'popover' ) }
 							className={ classes }

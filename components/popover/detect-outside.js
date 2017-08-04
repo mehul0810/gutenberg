@@ -9,11 +9,8 @@ import clickOutside from 'react-click-outside';
 import { Component } from '@wordpress/element';
 
 class PopoverDetectOutside extends Component {
-	handleClickOutside() {
-		const { onClickOutside } = this.props;
-		if ( onClickOutside ) {
-			onClickOutside();
-		}
+	handleClickOutside( event ) {
+		this.props.onClickOutside( event );
 	}
 
 	render() {
