@@ -28,7 +28,10 @@ registerBlockType( 'core/cover-text', {
 	category: 'formatting',
 
 	attributes: {
-		content: query( 'p', children() ),
+		content: {
+			type: 'array',
+			source: query( 'p', children() ),
+		},
 	},
 
 	getEditWrapperProps( attributes ) {

@@ -37,10 +37,20 @@ function getEmbedBlockSettings( { title, icon, category = 'embed', transforms } 
 		category,
 
 		attributes: {
-			title: attr( 'iframe', 'title' ),
-			caption: children( 'figcaption' ),
-			url: String,
-			align: String,
+			title: {
+				type: 'string',
+				source: attr( 'iframe', 'title' ),
+			},
+			caption: {
+				type: 'array',
+				source: children( 'figcaption' ),
+			},
+			url: {
+				type: 'string',
+			},
+			align: {
+				type: 'string',
+			},
 		},
 
 		transforms,

@@ -31,14 +31,26 @@ registerBlockType( 'core/cover-image', {
 	category: 'common',
 
 	attributes: {
-		title: text( 'h2' ),
-		url: String,
-		align: String,
-		id: Number,
-		hasParallax: Boolean,
+		title: {
+			type: 'string',
+			source: text( 'h2' ),
+		},
+		url: {
+			type: 'string',
+		},
+		align: {
+			type: 'string',
+		},
+		id: {
+			type: 'number',
+		},
+		hasParallax: {
+			type: 'boolean',
+			default: false,
+		},
 		hasBackgroundDim: {
-			type: Boolean,
-			defaultValue: true,
+			type: 'boolean',
+			default: true,
 		},
 	},
 

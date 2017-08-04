@@ -6,6 +6,7 @@
         "attributes": {
             "title": "Guten Berg!",
             "url": "https://cldup.com/uuUqE_dXzy.jpg",
+            "hasParallax": false,
             "hasBackgroundDim": true
         }
     }

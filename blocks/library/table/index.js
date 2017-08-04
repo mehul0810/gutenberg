@@ -17,8 +17,9 @@ registerBlockType( 'core/table', {
 
 	attributes: {
 		content: {
-			matcher: children( 'table' ),
-			defaultValue: [
+			type: 'array',
+			source: children( 'table' ),
+			default: [
 				<tbody key="1">
 					<tr><td><br /></td><td><br /></td></tr>
 					<tr><td><br /></td><td><br /></td></tr>

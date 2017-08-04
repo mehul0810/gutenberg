@@ -64,17 +64,19 @@ registerBlockType( 'core/gallery', {
 
 	attributes: {
 		align: {
-			type: String,
-			defaultValue: 'none',
+			type: 'string',
+			default: 'none',
 		},
 		images: {
-			type: Object, // Array
-			defaultValue: [],
+			type: 'array',
+			default: [],
 		},
-		columns: Number,
+		columns: {
+			type: 'number',
+		},
 		imageCrop: {
-			type: Boolean,
-			defaultValue: true,
+			type: 'boolean',
+			default: true,
 		},
 	},
 

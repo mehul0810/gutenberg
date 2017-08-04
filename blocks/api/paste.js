@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import { find, get, mapValues, flowRight as compose } from 'lodash';
+import { find, get, flowRight as compose } from 'lodash';
 
 /**
  * WordPress dependencies
@@ -13,7 +13,7 @@ import { nodetypes } from '@wordpress/utils';
  */
 import { createBlock } from './factory';
 import { getBlockTypes, getUnknownTypeHandler } from './registration';
-import { getMatcherAttributes, getNormalizedAttributeSource } from './parser';
+import { getMatcherAttributes } from './parser';
 import stripAttributes from './paste/strip-attributes';
 import removeSpans from './paste/remove-spans';
 
@@ -96,7 +96,7 @@ export default function( nodes ) {
 
 			const attributes = getMatcherAttributes(
 				node.outerHTML,
-				mapValues( transform.attributes, getNormalizedAttributeSource )
+				transform.attributes,
 			);
 
 			return createBlock( blockType.name, attributes );
